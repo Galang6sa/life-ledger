@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-// WAJIB ADA: 'export default'
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-900 text-white gap-4">
+    <div className="h-screen flex flex-col items-center justify-center bg-slate-900 text-white gap-4">
       <h1 className="text-4xl font-bold">LifeLedger</h1>
       <p className="text-slate-400">Your gamified productivity journey starts here.</p>
       <Link 

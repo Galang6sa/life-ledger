@@ -1,26 +1,63 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* BASE: Warm Ivory Paper */
+    --background: 40 20% 97%; /* #F9F8F4 */
+    --foreground: 220 10% 20%; /* #2D3035 */
+
+    /* CARDS: Pure White for contrast against Ivory background */
+    --card: 0 0% 100%;
+    --card-foreground: 220 10% 20%;
+
+    /* PRIMARY: Deep Forest Green */
+    --primary: 150 20% 25%; /* #334D3F */
+    --primary-foreground: 40 20% 97%;
+
+    /* ACCENT: Muted Clay */
+    --accent: 15 30% 60%; /* #BA9B8D */
+    --accent-foreground: 0 0% 100%;
+
+    /* MUTED & BORDERS */
+    --muted: 40 10% 90%;
+    --muted-foreground: 220 5% 50%;
+    --border: 40 10% 85%;
+    --input: 40 10% 85%;
+    --ring: 150 20% 25%;
+    
+    --radius: 0.3rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif), serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .shadow-paper {
+    box-shadow: 
+      0 1px 1px hsl(0deg 0% 0% / 0.05),
+      0 2px 2px hsl(0deg 0% 0% / 0.05),
+      0 4px 4px hsl(0deg 0% 0% / 0.05),
+      0 8px 8px hsl(0deg 0% 0% / 0.05);
+  }
+  
+  /* Hilangkan Scrollbar tapi tetap bisa scroll */
+  .no-scrollbar::-webkit-scrollbar {
+      display: none;
+  }
+  .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
 }
